@@ -49,7 +49,7 @@ st.markdown("Note: Tipe data :blue[`dteday`] ini adalah objek, yang biasanya men
             " mempertimbangkan untuk mengonversinya ke tipe data datetime"
             " untuk memudahkan penanganan operasi terkait tanggal.")
 
-df_bike = pd.read_csv("data\\day.csv")
+df_bike = pd.read_csv("data\day.csv")
 
 # Changing the datetime datatype
 df_bike['datetime'] = pd.to_datetime(df_bike['dteday'])
