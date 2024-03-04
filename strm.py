@@ -17,7 +17,7 @@ code = '''import pandas as pd
 
 df=pd.read_csv("yourdata.csv")'''
 st.code(code, language='python')
-df_bike = pd.read_csv("data\day.csv") #import dataset
+df_bike = pd.read_csv("day.csv") #import dataset
 st.caption('example output from code above :')  
 st.write(df_bike) #showing the dataset
 
@@ -49,7 +49,7 @@ st.markdown("Note: Tipe data :blue[`dteday`] ini adalah objek, yang biasanya men
             " mempertimbangkan untuk mengonversinya ke tipe data datetime"
             " untuk memudahkan penanganan operasi terkait tanggal.")
 
-df_bike = pd.read_csv("data\day.csv")
+df_bike = pd.read_csv("day.csv")
 
 # Changing the datetime datatype
 df_bike['datetime'] = pd.to_datetime(df_bike['dteday'])
