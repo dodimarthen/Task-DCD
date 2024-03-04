@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 import io
-
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 #Title
@@ -16,7 +17,7 @@ code = '''import pandas as pd
 
 df=pd.read_csv("yourdata.csv")'''
 st.code(code, language='python')
-df_bike = pd.read_csv(r"data\day.csv") #import dataset
+df_bike = pd.read_csv("data\day.csv") #import dataset
 st.caption('example output from code above :')  
 st.write(df_bike) #showing the dataset
 
@@ -135,25 +136,25 @@ st.markdown("Note: Kita dapat melihat bahwa musim mempengaruhi minat pengguna se
 
 
 
-# #Count bike that rented in differet year
-# monthly_counts = df_bike.groupby(by=["month", "year"]).agg({"cnt": "sum"}).reset_index()
-# fig, ax = plt.subplots(figsize=(10, 10))
-# sns.lineplot(
-#     data=monthly_counts,
-#     x="month",
-#     y="cnt",
-#     hue="year",
-#     palette="rocket",
-#     marker="o",
-#     ax=ax,
-#     sort=False,  # Disable sorting of categorical variable
-#     hue_order=df_bike['year'].unique(),  # Ensure the order of the years is maintained
-#     units="year"
-# )
-# ax.set_title("Total number of bicycles rented by Month and year")
-# ax.set_xlabel("Month")
-# ax.set_ylabel("Total")
-# ax.legend(title="Year", loc="upper right")
-# plt.tight_layout()
-# st.pyplot(fig)
-# st.markdown('Dari visualisasi menggunakan lineplot, dapat disimpulkan bahwa pada tahun 2012 (yang diwakili oleh angka 1), terjadi peningkatan yang signifikan dalam penyewaan sepeda dari bulan Januari hingga Desember. Puncak penyewaan terjadi pada bulan September, sementara bulan dengan jumlah penyewaan terendah adalah Januari. Sebaliknya, pada tahun 2011, puncak penyewaan sepeda terjadi pada bulan Juni, dengan bulan Januari sebagai bulan dengan penyewaan terendah.')
+#Count bike that rented in differet year
+monthly_counts = df_bike.groupby(by=["month", "year"]).agg({"cnt": "sum"}).reset_index()
+fig, ax = plt.subplots(figsize=(10, 10))
+sns.lineplot(
+    data=monthly_counts,
+    x="month",
+    y="cnt",
+    hue="year",
+    palette="rocket",
+    marker="o",
+    ax=ax,
+    sort=False,  # Disable sorting of categorical variable
+    hue_order=df_bike['year'].unique(),  # Ensure the order of the years is maintained
+    units="year"
+)
+ax.set_title("Total number of bicycles rented by Month and year")
+ax.set_xlabel("Month")
+ax.set_ylabel("Total")
+ax.legend(title="Year", loc="upper right")
+plt.tight_layout()
+st.pyplot(fig)
+st.markdown('Dari visualisasi menggunakan lineplot, dapat disimpulkan bahwa pada tahun 2012 (yang diwakili oleh angka 1), terjadi peningkatan yang signifikan dalam penyewaan sepeda dari bulan Januari hingga Desember. Puncak penyewaan terjadi pada bulan September, sementara bulan dengan jumlah penyewaan terendah adalah Januari. Sebaliknya, pada tahun 2011, puncak penyewaan sepeda terjadi pada bulan Juni, dengan bulan Januari sebagai bulan dengan penyewaan terendah.')
