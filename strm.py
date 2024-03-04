@@ -16,7 +16,7 @@ code = '''import pandas as pd
 
 df=pd.read_csv("yourdata.csv")'''
 st.code(code, language='python')
-df_bike = pd.read_csv("data\\day.csv") #import dataset
+df_bike = pd.read_csv("data\day.csv") #import dataset
 st.caption('example output from code above :')  
 st.write(df_bike) #showing the dataset
 
