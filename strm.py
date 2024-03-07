@@ -132,6 +132,7 @@ ax.set_ylabel('Count')
 ax.set_title('Season vs Rent')
 ax.legend()
 st.pyplot(fig)
+st.subheader('Apakah cuaca mempengaruhi penggunaan sepeda?')
 st.markdown("Note: Kita dapat melihat bahwa musim mempengaruhi minat pengguna sepeda, karna pada musim gugur peningkatan sewa sepeda cukup tinggi, baik dari registered ataupun casual")
 
 
